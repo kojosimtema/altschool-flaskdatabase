@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+<body>
+    <center>Database Connection</center>
+    <div>
+        {% for user in users %}
+        <form action="{{url_for('update_user', id=user.id)}}" method="POST">
+            
+            <label for="username">Username</label><br>
+            <input type="text" name="username" id="username" value="{{user.username}}">
+            <br><br>
+            <label for="email">email</label><br>
+            <input type="text" name="email" id="email" value="{{user.email}}">
+            <br><br>
+            <label for="firstname">First Name</label><br>
+            <input type="text" name="fname" id="fname" value="{{user.firstname}}">
+            <br><br>
+            <label for="lastname">Last Name</label><br>
+            <input type="text" name="lname" id="lname" value="{{user.lastname}}">
+            <br><br>
+            <button type="submit">Update</button><br><br>
+            
+        </form>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
